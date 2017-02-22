@@ -3,18 +3,20 @@ var app = express()
 var bodyParser = require('body-parser')
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
 app.use(bodyParser.json())
 
 
 app.post('/add', function (req, res) {
-  app.use(bodyParser.json());
   console.log('request recieved for addition')
-  console.log(req.body)
-  //var numbers = req.body.split(',');
-  //  console.log(numbers[0]+numbers[1])
+  var numbers = ((req.body.numbers).split(','));
+  res.status(200).send('{sum:'+(parseInt(numbers[0])+parseInt(numbers[1]))+'}')
+})
 
-  res.send(req.body)
+
+app.post('/subtract', function (req, res) {
+  console.log('request recieved for addition')
+  var numbers = ((req.body.numbers).split(','));
+  res.status(200).send('{difference:'+(parseInt(numbers[0])-parseInt(numbers[1]))+'}')
 })
 
 app.listen(3000, function () {
