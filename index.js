@@ -14,7 +14,7 @@ app.post('/add', function (req, res) {
 
 
 app.post('/subtract', function (req, res) {
-  console.log('request recieved for addition')
+  console.log('request recieved for subtraction')
   var numbers = ((req.body.numbers).split(','));
   res.status(200).send('{difference:'+(parseInt(numbers[0])-parseInt(numbers[1]))+'}')
 })
